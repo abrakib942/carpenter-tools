@@ -12,7 +12,7 @@ const Tools = () => {
 
   return (
     <div className="px-16">
-      <h3 className="text-2xl text-center mt-24 mb-16 font-bold">
+      <h3 className="text-3xl text-center mt-24 mb-16 font-bold">
         Woodworking Tools
       </h3>
 
