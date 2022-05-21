@@ -7,7 +7,7 @@ const Banner = () => {
       style={{
         background: `url(${banner})`,
       }}
-      className="p-32"
+      className="p-32 lg:p-44"
     >
       <div>
         <h2 className="text-2xl font-mono text-white font-bold">

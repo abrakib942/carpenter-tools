@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Hand Saw",
+    "img": "https://i.ibb.co/Xp98LY9/korat.png",
+    "description": "With Hand saw, wood working life is easy",
+    "minOrderQuantity": 10,
+    "availableQuantity": 120,
+    "price": 220
+  },
+  {
+    "name": "Caliper",
+    "img": "https://i.ibb.co/1XYQ3db/calliper.png",
+    "description": "Run with Caliper in your furniture making factory",
+    "minOrderQuantity": 5,
+    "availableQuantity": 80,
+    "price": 70
+  },
+  {
+    "name": "C-Clamp",
+    "img": "https://i.ibb.co/T40BpH2/clamp.png",
+    "description": "It's make easy to work with wood",
+    "minOrderQuantity": 3,
+    "availableQuantity": 65,
+    "price": 170
+  },
+  {
+    "name": "Marking Gauss",
+    "img": "https://i.ibb.co/vw0Jjnq/gauss.png",
+    "description": "The best seller product of our company",
+    "minOrderQuantity": 6,
+    "availableQuantity": 90,
+    "price": 190
+  },
+  {
+    "name": "Working Gloves",
+    "img": "https://i.ibb.co/d5wsSGZ/gloves.png",
+    "description": "You ware and be safe working",
+    "minOrderQuantity": 5,
+    "availableQuantity": 80,
+    "price": 130
+  },
+  {
+    "name": "Steel Nail",
+    "img": "https://i.ibb.co/6FkHyFr/nut.png",
+    "description": "It's really good, gives you the best output ",
+    "minOrderQuantity": 18,
+    "availableQuantity": 240,
+    "price": 80
+  },
+  {
+    "name": "Pliers",
+    "img": "https://i.ibb.co/BgxYCKx/pliers.png",
+    "description": "You have to know it's the best product of our company",
+    "minOrderQuantity": 8,
+    "availableQuantity": 110,
+    "price": 250
+  },
+  {
+    "name": "Woodwork Tools",
+    "img": "https://i.ibb.co/cJP3fj8/tools.png",
+    "description": "It's make your wood working life easy",
+    "minOrderQuantity": 12,
+    "availableQuantity": 110,
+    "price": 280
+  }
+]

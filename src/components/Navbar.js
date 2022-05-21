@@ -73,8 +73,11 @@ const Navbar = () => {
         </label>
       )}
 
-      <Link to="/" className="btn btn-ghost normal-case text-xl ">
-        Doctors Portal
+      <Link
+        to="/"
+        className="btn btn-ghost normal-case text-xl text-primary font-bold"
+      >
+        CARPENCO
       </Link>
       <div className="navbar-end">
         {/* menubar */}
