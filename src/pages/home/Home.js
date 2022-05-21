@@ -2,6 +2,7 @@ import React from "react";
 
 import Banner from "./Banner";
 import ExtraOne from "./ExtraOne";
+import ExtraTwo from "./ExtraTwo";
 import Tools from "./Tools";
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
       <Banner />
       <Tools />
       <ExtraOne />
+      <ExtraTwo />
     </div>
   );
 };
