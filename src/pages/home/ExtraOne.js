@@ -7,11 +7,13 @@ const ExtraOne = () => {
       style={{
         background: `url(${banner2})`,
       }}
-      className="p-36  my-20"
+      className="lg:p-36 md:p-24 p-12 my-20"
     >
       <div className="text-center text-white">
-        <h2 className="lg:text-xl font-mono  ">POWER TOOLS YOU SHOULD OWN</h2>
-        <h2 className="lg:text-3xl text-xl">
+        <h2 className="lg:text-xl text-sm font-mono  ">
+          POWER TOOLS YOU SHOULD OWN
+        </h2>
+        <h2 className="lg:text-3xl">
           ENJOY THE BEST QUALITY AND FEATURES MADE BY <br /> OUR TEAM
         </h2>
         <button className="btn btn-outline btn-primary my-3">View more</button>
