@@ -16,6 +16,7 @@ import AddProduct from "./pages/Dashboard/AddProduct";
 import MakeAddmin from "./pages/Dashboard/MakeAddmin";
 import ManageProduct from "./pages/Dashboard/ManageProduct";
 import MyProfile from "./pages/Dashboard/MyProfile";
+import Purchase from "./pages/Purchase";
 
 function App() {
   return (
@@ -32,16 +33,19 @@ function App() {
 
         {/* private route */}
         <Route element={<RequireAuth />}>
-          <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="my-order" element={<MyOrder />} />
-            <Route path="/dashboard" element={<MyProfile />} />
-            <Route path="review" element={<AddReview />} />
-            <Route path="manage-order" element={<ManageOrders />} />
-            <Route path="add-product" element={<AddProduct />} />
-            <Route path="make-admin" element={<MakeAddmin />} />
-            <Route path="manage-product" element={<ManageProduct />} />
-            <Route path="profile" element={<MyProfile />} />
-          </Route>
+          <Route path="/tool/:id" element={<Purchase />} />
+        </Route>
+
+        {/* nested */}
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="my-order" element={<MyOrder />} />
+          <Route path="/dashboard" element={<MyProfile />} />
+          <Route path="review" element={<AddReview />} />
+          <Route path="manage-order" element={<ManageOrders />} />
+          <Route path="add-product" element={<AddProduct />} />
+          <Route path="make-admin" element={<MakeAddmin />} />
+          <Route path="manage-product" element={<ManageProduct />} />
+          <Route path="profile" element={<MyProfile />} />
         </Route>
       </Routes>
 
