@@ -23,29 +23,19 @@ const Navbar = () => {
       <li>
         <Link to="/blog">Blog</Link>
       </li>
-      <li>
-        <Link to="/appointment">Appointment</Link>
-      </li>
-      <li>
-        <Link to="/review">Review</Link>
-      </li>
-      <li>
-        <Link to="/contact">Contact</Link>
-      </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
 
-      {/* {user && (
+      {user && (
         <li>
           <Link to="/dashboard">Dashboard</Link>
         </li>
-      )} */}
+      )}
       <li>
         {user ? (
-          <button onClick={logOut} className="btn btn-ghost">
-            Log Out
-          </button>
+          <>
+            <button onClick={logOut} className="btn btn-ghost">
+              Log Out
+            </button>
+          </>
         ) : (
           <Link to="/login">Login</Link>
         )}
@@ -57,7 +47,7 @@ const Navbar = () => {
     <div className="navbar bg-base-100 lg:px-12 md:px-12 flex justify-between ">
       {/* sidebar */}
 
-      {pathname.includes("dashboard") && (
+      {pathname.includes("/dashboard") && (
         <label htmlFor="my-drawer-2" className="btn btn-ghost lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
