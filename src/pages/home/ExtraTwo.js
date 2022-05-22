@@ -7,7 +7,9 @@ import blog4 from "../../assets/blog4.png";
 const ExtraTwo = () => {
   return (
     <div>
-      <p className="text-center text-accent text-xs">LATEST WOOD WORK NEWS</p>
+      <p className="text-center text-accent text-xs font-bold">
+        LATEST WOOD WORK NEWS
+      </p>
       <h2 className="text-3xl font-bold text-center">Carpenters Blog</h2>
 
       <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 px-16 mt-16">
