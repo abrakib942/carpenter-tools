@@ -13,7 +13,7 @@ const Tool = ({ tool }) => {
   } = tool;
   const navigate = useNavigate();
 
-  const handlePurchase = (id) => {
+  const navigateToPurchase = (id) => {
     navigate(`/tool/${id}`);
   };
   return (
@@ -35,7 +35,7 @@ const Tool = ({ tool }) => {
         <h3 className="text-2xl font-bold text-orange-500"> ${price} </h3>
         <div class="card-actions justify-end">
           <button
-            onClick={() => handlePurchase(_id)}
+            onClick={() => navigateToPurchase(_id)}
             class="btn btn-primary hover:btn-link text-white"
           >
             Buy Now
