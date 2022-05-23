@@ -15,6 +15,9 @@ const Purchase = () => {
   const addressRef = useRef();
   const phoneRef = useRef();
   const formRef = useRef();
+  const orderQuantityRef = useRef();
+  const totalRef = useRef();
+  const toolRef = useRef();
 
   const quantityRef = useRef();
 
@@ -32,8 +35,35 @@ const Purchase = () => {
     const email = emailRef.current.value;
     const address = addressRef.current.value;
     const phone = phoneRef.current.value;
+    const orderQuantity = orderQuantityRef.current.value;
+    const totalPrice = totalRef.current.value;
+    const tool = toolRef.current.value;
 
-    console.log(name, email, address, phone);
+    const purchase = {
+      name,
+      email,
+      address,
+      phone,
+      orderQuantity,
+      totalPrice,
+      tool,
+    };
+
+    fetch("http://localhost:5000/order", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(purchase),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("You have purchase the order");
+        }
+      });
+
+    event.target.reset();
   };
 
   const handleIncrease = (event) => {
@@ -56,6 +86,16 @@ const Purchase = () => {
     }
     const tPrice = tool.orderQuantity * tool.price;
     setTotalPrice(tPrice);
+
+    // fetch(`http://localhost:5000/tool/${id}`, {
+    //   method: "PUT",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(orderQuantity),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
 
     formRef.current.reset();
   };
@@ -144,9 +184,6 @@ const Purchase = () => {
               </form>
             </div>
           </div>
-          <button className="btn-primary p-2 rounded-lg font-bold">
-            Purchase
-          </button>
         </div>
       </div>
 
@@ -159,13 +196,24 @@ const Purchase = () => {
           <form onSubmit={handlePurchase}>
             <div class="form-control">
               <label class="label">
-                <span class="label-text text-white">Name</span>
+                <span class="label-text text-white">Tool</span>
+              </label>
+              <input
+                ref={toolRef}
+                value={tool.name}
+                type="text"
+                class="input input-bordered"
+                disabled
+              />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text text-white">Your Name</span>
               </label>
               <input
                 ref={nameRef}
                 value={user.displayName}
                 type="text"
-                placeholder="name"
                 class="input input-bordered"
                 disabled
               />
@@ -212,6 +260,7 @@ const Purchase = () => {
                 <span class="label-text text-white"> Your Order Quantity</span>
               </label>
               <input
+                ref={orderQuantityRef}
                 value={tool.orderQuantity}
                 type="text"
                 class="input input-bordered"
@@ -223,6 +272,7 @@ const Purchase = () => {
                 <span class="label-text text-white"> Total Price</span>
               </label>
               <input
+                ref={totalRef}
                 value={totalPrice}
                 type="text"
                 class="input input-bordered"
