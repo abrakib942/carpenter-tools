@@ -68,8 +68,6 @@ const Purchase = () => {
     event.target.reset();
   };
 
-  const tPrice = orderCount * tool.price;
-
   const handleIncrease = (event) => {
     event.preventDefault();
 
@@ -77,12 +75,15 @@ const Purchase = () => {
 
     const newIncreaseCount = orderCount + 1;
 
+    const tPrice = orderCount * tool.price;
+    const newPrice = tPrice + tool.price;
+
     if (count === tool.availableQuantity) {
       toast.error("Your Order quantity reached available quantity");
     } else {
       setCount(iCount);
       setOrderCount(newIncreaseCount);
-      setTotalPrice(tPrice);
+      setTotalPrice(newPrice);
     }
 
     // const tPrice = tool.orderQuantity * tool.price;
@@ -105,12 +106,15 @@ const Purchase = () => {
 
     const newDecreaseCount = orderCount - 1;
 
+    const tPrice = orderCount * tool.price;
+    const newPrice = tPrice - tool.price;
+
     if (count === tool.minOrderQuantity) {
       toast.error("Offs! You are already in minimum order Quantity");
     } else {
       setCount(dCount);
       setOrderCount(newDecreaseCount);
-      setTotalPrice(tPrice);
+      setTotalPrice(newPrice);
     }
   };
 
