@@ -35,7 +35,7 @@ const Navbar = () => {
             <button onClick={logOut} className="btn btn-ghost">
               Log Out
             </button>
-            <p>{user.displayName}</p>
+            <p className="text-orange-500 font-bold">{user.displayName}</p>
           </>
         ) : (
           <Link to="/login">Login</Link>

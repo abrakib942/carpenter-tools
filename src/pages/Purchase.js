@@ -151,7 +151,7 @@ const Purchase = () => {
           </h2>
 
           {/* change quantity */}
-          <div class="card w-96 bg-base-300 text-neutral-content my-8">
+          <div class="card w-64 lg:w-96 md:w-96  bg-base-300 text-neutral-content my-8">
             <div class="card-body items-center text-center">
               <h2 class="text-accent text-xl">Change Quantity</h2>
               <form ref={formRef}>
@@ -187,7 +187,7 @@ const Purchase = () => {
       <h2 className="text-3xl text-center font-bold text-primary mt-8">
         Give Information To Purchase: {tool.name}{" "}
       </h2>
-      <div class="w-96 mx-auto my-10">
+      <div class="lg:w-96 md:w-96 mx-auto my-10">
         <div class="card shadow-2xl card-body bg-accent">
           <form onSubmit={handlePurchase}>
             <div class="form-control">

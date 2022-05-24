@@ -17,8 +17,8 @@ const Banner = () => {
           PROFESSIONAL & QUANTITY <br /> CARPENTER SERVICE
         </h2>
         <p className="text-white">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit,
-          doloremque.
+          Enjoy your Woodworking life with Carpenco. The best carpenter tools
+          manufacturer.{" "}
         </p>
         <button className="btn btn-primary  mt-3 ">Read more</button>
       </div>
