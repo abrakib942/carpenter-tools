@@ -8,6 +8,10 @@ const Purchase = () => {
   const { id } = useParams({});
   const [tool, setTool] = useState({});
 
+  const [count, setCount] = useState(10);
+
+  const [orderCount, setOrderCount] = useState(10);
+
   const [totalPrice, setTotalPrice] = useState();
 
   const nameRef = useRef();
@@ -18,8 +22,6 @@ const Purchase = () => {
   const orderQuantityRef = useRef();
   const totalRef = useRef();
   const toolRef = useRef();
-
-  const quantityRef = useRef();
 
   const [user] = useAuthState(auth);
 
@@ -66,26 +68,25 @@ const Purchase = () => {
     event.target.reset();
   };
 
+  const tPrice = orderCount * tool.price;
+
   const handleIncrease = (event) => {
     event.preventDefault();
 
-    const quantity = quantityRef.current.value;
+    const iCount = count + 1;
 
-    if (quantity < 1) {
-      setTool(tool);
-      toast.error("Input only positive number");
-    } else if (quantity && tool.orderQuantity > tool.availableQuantity) {
-      toast.error(
-        "Order quantity cannot greater than available quantity, Please Decrease quantity"
-      );
+    const newIncreaseCount = orderCount + 1;
+
+    if (count === tool.availableQuantity) {
+      toast.error("Your Order quantity reached available quantity");
     } else {
-      setTool({
-        ...tool,
-        orderQuantity: tool.orderQuantity + Number(quantity),
-      });
+      setCount(iCount);
+      setOrderCount(newIncreaseCount);
+      setTotalPrice(tPrice);
     }
-    const tPrice = tool.orderQuantity * tool.price;
-    setTotalPrice(tPrice);
+
+    // const tPrice = tool.orderQuantity * tool.price;
+    // setTotalPrice(tPrice);
 
     // fetch(`http://localhost:5000/tool/${id}`, {
     //   method: "PUT",
@@ -96,28 +97,21 @@ const Purchase = () => {
     // })
     //   .then((res) => res.json())
     //   .then((data) => console.log(data));
-
-    formRef.current.reset();
   };
 
   const handleDecrease = (event) => {
     event.preventDefault();
-    const quantity = quantityRef.current.value;
+    const dCount = count - 1;
 
-    if (quantity < 1) {
-      setTool(tool);
-      toast.error("Input only positive number");
-    } else if (tool.orderQuantity < tool.minOrderQuantity) {
-      toast.error(
-        "order quantity must be less than minimum order quantity, Please Increase quantity"
-      );
+    const newDecreaseCount = orderCount - 1;
+
+    if (count === tool.minOrderQuantity) {
+      toast.error("Offs! You are already in minimum order Quantity");
     } else {
-      setTool({
-        ...tool,
-        orderQuantity: tool.orderQuantity - Number(quantity),
-      });
+      setCount(dCount);
+      setOrderCount(newDecreaseCount);
+      setTotalPrice(tPrice);
     }
-    formRef.current.reset();
   };
 
   return (
@@ -145,9 +139,7 @@ const Purchase = () => {
           {/* total */}
           <h2 className="text-xl mt-6">
             Your Order Quantity:{" "}
-            <span className="text-orange-500 text-2xl">
-              ${tool.orderQuantity}
-            </span>{" "}
+            <span className="text-orange-500 text-2xl">${orderCount}</span>{" "}
           </h2>
           <h2 className="text-xl">
             Total Price:{" "}
@@ -160,7 +152,7 @@ const Purchase = () => {
               <h2 class="text-accent text-xl">Change Quantity</h2>
               <form ref={formRef}>
                 <input
-                  ref={quantityRef}
+                  value={count}
                   type="number"
                   placeholder="Update Quantity"
                   class="input input-bordered text-black w-full max-w-xs"
@@ -261,7 +253,7 @@ const Purchase = () => {
               </label>
               <input
                 ref={orderQuantityRef}
-                value={tool.orderQuantity}
+                value={orderCount}
                 type="text"
                 class="input input-bordered"
                 disabled
