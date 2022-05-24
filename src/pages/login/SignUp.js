@@ -7,12 +7,14 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading";
 import auth from "../../firebase.init";
+import useToken from "../../hooks/useToken";
 
 const SignUp = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
 
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -22,11 +24,13 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
+  const [token] = useToken(user || gUser);
+
   if (loading || gLoading) {
     return <Loading />;
   }
 
-  if (user || gUser) {
+  if (token) {
     navigate("/");
   }
 
@@ -40,6 +44,8 @@ const SignUp = () => {
 
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
+
+    reset();
   };
 
   return (
