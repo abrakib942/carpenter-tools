@@ -4,7 +4,11 @@ import Loading from "../../components/Loading";
 import UserRow from "./UserRow";
 
 const MakeAddmin = () => {
-  const { data: users, isLoading } = useQuery("users", () =>
+  const {
+    data: users,
+    isLoading,
+    refetch,
+  } = useQuery("users", () =>
     fetch("http://localhost:5000/user").then((res) => res.json())
   );
 
@@ -28,7 +32,12 @@ const MakeAddmin = () => {
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <UserRow key={user._id} index={index} user={user}></UserRow>
+              <UserRow
+                key={user._id}
+                index={index}
+                user={user}
+                refetch={refetch}
+              ></UserRow>
             ))}
           </tbody>
         </table>

@@ -1,7 +1,12 @@
 import React from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { NavLink, Outlet } from "react-router-dom";
+import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <div className="">
       <div className="drawer drawer-mobile">
@@ -19,25 +24,35 @@ const Dashboard = () => {
             <li>
               <NavLink to="/dashboard/profile">My Profile</NavLink>
             </li>
-            <li>
-              <NavLink to="/dashboard/my-order">My Orders</NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/review"> Add Review</NavLink>
-            </li>
-
-            <li>
-              <NavLink to="/dashboard/manage-order">Manage All Orders</NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/add-product">Add a Product</NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/make-admin">Make Admin</NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/manage-product">Manage Products</NavLink>
-            </li>
+            {admin ? (
+              <>
+                <li>
+                  <NavLink to="/dashboard/manage-order">
+                    Manage All Orders
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/add-product">Add a Product</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/make-admin">Make Admin</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/manage-product">
+                    Manage Products
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink to="/dashboard/my-order">My Orders</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/review"> Add Review</NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
