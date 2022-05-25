@@ -22,6 +22,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Portfolio from "./pages/Portfolio";
 import RequireAdmin from "./pages/login/RequireAdmin";
+import Payment from "./pages/Dashboard/Payment";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         {/* nested */}
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="my-order" element={<MyOrder />} />
+          <Route path="payment/:id" element={<Payment />} />
           <Route path="/dashboard" element={<MyProfile />} />
           <Route path="review" element={<AddReview />} />
           <Route path="manage-order" element={<ManageOrders />} />

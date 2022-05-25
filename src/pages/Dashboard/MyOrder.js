@@ -1,18 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useQuery } from "react-query";
+import Loading from "../../components/Loading";
 import auth from "../../firebase.init";
+import CancelModal from "./CancelModal";
 import OrderRow from "./OrderRow";
 
 const MyOrder = () => {
-  const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
+  const [cancelOrder, setCancelOrder] = useState(null);
 
-  useEffect(() => {
-    const email = user?.email;
-    fetch(`http://localhost:5000/order?email=${email}`)
-      .then((res) => res.json())
-      .then((data) => setOrders(data));
-  }, [user]);
+  const email = user?.email;
+  const {
+    data: orders,
+    isLoading,
+    refetch,
+  } = useQuery("orders", () =>
+    fetch(`http://localhost:5000/order?email=${email}`).then((res) =>
+      res.json()
+    )
+  );
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div>
@@ -34,12 +45,24 @@ const MyOrder = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order, index) => (
-              <OrderRow key={order._id} index={index} order={order}></OrderRow>
+            {orders?.map((order, index) => (
+              <OrderRow
+                key={order._id}
+                index={index}
+                order={order}
+                setCancelOrder={setCancelOrder}
+              ></OrderRow>
             ))}
           </tbody>
         </table>
       </div>
+      {cancelOrder && (
+        <CancelModal
+          cancelOrder={cancelOrder}
+          setCancelOrder={setCancelOrder}
+          refetch={refetch}
+        ></CancelModal>
+      )}
     </div>
   );
 };
