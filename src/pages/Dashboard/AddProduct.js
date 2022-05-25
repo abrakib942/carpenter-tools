@@ -1,9 +1,137 @@
-import React from "react";
+import React, { useRef } from "react";
+import { toast } from "react-toastify";
 
 const AddProduct = () => {
+  const nameRef = useRef();
+  const desRef = useRef();
+  const minRef = useRef();
+  const availableRef = useRef();
+  const priceRef = useRef();
+  const imgRef = useRef();
+
+  const handleAdd = (event) => {
+    event.preventDefault();
+
+    const name = nameRef.current.value;
+    const description = desRef.current.value;
+    const minOrderQuantity = minRef.current.value;
+    const availableQuantity = availableRef.current.value;
+    const price = priceRef.current.value;
+    const img = imgRef.current.value;
+
+    const addProduct = {
+      name,
+      description,
+      minOrderQuantity: Number(minOrderQuantity),
+      availableQuantity: Number(availableQuantity),
+      price: Number(price),
+      img,
+    };
+
+    fetch("http://localhost:5000/tool", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Product added Successfully");
+
+          event.target.reset();
+        }
+      });
+  };
   return (
-    <div>
-      <h2 className="text-2xl">Add Product</h2>
+    <div className="bg-base-300 py-8">
+      <h2 className="text-2xl font-bold text-center my-5">Add Product</h2>
+
+      <div class="hero">
+        <div class="card  w-full max-w-sm shadow-2xl bg-primary">
+          <div class="card-body">
+            <form onSubmit={handleAdd}>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Product Name</span>
+                </label>
+                <input
+                  ref={nameRef}
+                  type="text"
+                  placeholder="name"
+                  class="input input-bordered"
+                  required
+                />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Description</span>
+                </label>
+                <textarea
+                  ref={desRef}
+                  type="text"
+                  placeholder="description"
+                  class="input input-bordered"
+                  required
+                />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Minimum Order Quantity</span>
+                </label>
+                <input
+                  value={10}
+                  ref={minRef}
+                  type="number"
+                  class="input input-bordered"
+                  disabled
+                />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Available Quantity</span>
+                </label>
+                <input
+                  ref={availableRef}
+                  type="number"
+                  class="input input-bordered"
+                  required
+                />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Price Per Unit</span>
+                </label>
+                <input
+                  ref={priceRef}
+                  type="number"
+                  class="input input-bordered"
+                  required
+                />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-bold">Insert Url</span>
+                </label>
+                <input
+                  ref={imgRef}
+                  type="text"
+                  placeholder="Photo Url"
+                  class="input input-bordered"
+                  required
+                />
+              </div>
+
+              <div class="form-control mt-6">
+                <button type="submit" class="btn btn-accent">
+                  Add
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

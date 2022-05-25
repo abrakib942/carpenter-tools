@@ -18,7 +18,9 @@ const MakeAddmin = () => {
 
   return (
     <div>
-      <h2 className="text-2xl">Users: {users.length} </h2>
+      <h2 className="text-2xl font-bold text-white text-center mb-2">
+        Users: {users.length}{" "}
+      </h2>
 
       <div class="overflow-x-auto">
         <table class="table w-full">

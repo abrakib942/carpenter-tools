@@ -211,7 +211,7 @@ const Purchase = () => {
                 value={user.displayName}
                 type="text"
                 class="input input-bordered"
-                disabled
+                required
               />
             </div>
             <div class="form-control">
