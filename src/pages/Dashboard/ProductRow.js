@@ -1,9 +1,7 @@
 import React from "react";
 
-const ProductRow = ({ tool, index, refetch }) => {
+const ProductRow = ({ tool, index, setDeleteTool }) => {
   const { name, minOrderQuantity, availableQuantity, price } = tool;
-
-  const handleDelete = () => {};
 
   return (
     <tr className="hover">
@@ -14,9 +12,13 @@ const ProductRow = ({ tool, index, refetch }) => {
       <td>{price}</td>
       <td>
         {" "}
-        <button onClick={handleDelete} className="btn btn-xs btn-accent">
+        <label
+          for="delete-modal"
+          onClick={() => setDeleteTool(tool)}
+          className="btn btn-xs btn-accent"
+        >
           Delete
-        </button>{" "}
+        </label>{" "}
       </td>
     </tr>
   );

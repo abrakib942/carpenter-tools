@@ -1,30 +1,29 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const CancelModal = ({ cancelOrder, refetch, setCancelOrder }) => {
-  const { tool, _id } = cancelOrder;
+const DeleteToolModal = ({ deleteTool, setDeleteTool, refetch }) => {
+  const { _id, name } = deleteTool;
 
   const handleDelete = () => {
-    fetch(`http://localhost:5000/order/${_id}`, {
+    fetch(`http://localhost:5000/tool/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          toast.success(` ${tool} is deleted `);
-          setCancelOrder(null);
+          toast(` ${name} is deleted `);
+          setDeleteTool(null);
           refetch();
         }
       });
   };
-
   return (
     <div>
       <input type="checkbox" id="delete-modal" class="modal-toggle" />
       <div class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
           <h3 class="font-bold text-lg text-orange-500">
-            Are You sure you want to delete {tool}?
+            Are You sure you want to delete {name}?
           </h3>
 
           <div class="modal-action">
@@ -44,4 +43,4 @@ const CancelModal = ({ cancelOrder, refetch, setCancelOrder }) => {
   );
 };
 
-export default CancelModal;
+export default DeleteToolModal;
