@@ -42,6 +42,11 @@ const Dashboard = () => {
                     Manage Products
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to="/dashboard/manage-review">
+                    Manage Reviews
+                  </NavLink>
+                </li>
               </>
             ) : (
               <>

@@ -9,7 +9,9 @@ const ManageOrders = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch("http://localhost:5000/all-order").then((res) => res.json())
+    fetch("https://rocky-lowlands-40582.herokuapp.com/all-order").then((res) =>
+      res.json()
+    )
   );
 
   if (isLoading) {
@@ -21,8 +23,8 @@ const ManageOrders = () => {
       <h2 className="text-2xl text-center font-bold text-white mb-3">
         Manage Orders
       </h2>
-      <div class="overflow-x-auto">
-        <table class="table table-zebra  w-full">
+      <div className="overflow-x-auto">
+        <table className="table table-zebra  w-full">
           <thead>
             <tr>
               <th></th>
@@ -41,7 +43,6 @@ const ManageOrders = () => {
                 key={order._id}
                 order={order}
                 index={index}
-                refetch={refetch}
               ></AllOrderRow>
             ))}
           </tbody>

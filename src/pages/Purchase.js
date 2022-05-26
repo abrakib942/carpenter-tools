@@ -26,7 +26,7 @@ const Purchase = () => {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tool/${id}`)
+    fetch(`https://rocky-lowlands-40582.herokuapp.com/tool/${id}`)
       .then((res) => res.json())
       .then((data) => setTool(data));
   }, [id]);
@@ -51,7 +51,7 @@ const Purchase = () => {
       tool,
     };
 
-    fetch("http://localhost:5000/order", {
+    fetch("https://rocky-lowlands-40582.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -89,7 +89,7 @@ const Purchase = () => {
     // const tPrice = tool.orderQuantity * tool.price;
     // setTotalPrice(tPrice);
 
-    // fetch(`http://localhost:5000/tool/${id}`, {
+    // fetch(`https://rocky-lowlands-40582.herokuapp.com/tool/${id}`, {
     //   method: "PUT",
     //   headers: {
     //     "content-type": "application/json",
@@ -120,12 +120,12 @@ const Purchase = () => {
 
   return (
     <div>
-      <div class="card lg:card-side px-12 lg:ml-24 lg:flex lg:items-center">
+      <div className="card lg:card-side px-12 lg:ml-24 lg:flex lg:items-center">
         <figure>
           <img className="" src={tool.img} alt="Album" />
         </figure>
-        <div class="card-body md:mx-auto">
-          <h2 class="card-title text-2xl font-bold">{tool.name}</h2>
+        <div className="card-body md:mx-auto">
+          <h2 className="card-title text-2xl font-bold">{tool.name}</h2>
           <small>{tool.description}</small>
           <h2 className="text-xl">
             Minimum Order Quantity:{" "}
@@ -151,28 +151,28 @@ const Purchase = () => {
           </h2>
 
           {/* change quantity */}
-          <div class="card w-64 lg:w-96 md:w-96  bg-base-300 text-neutral-content my-8">
-            <div class="card-body items-center text-center">
-              <h2 class="text-accent text-xl">Change Quantity</h2>
+          <div className="card w-64 lg:w-96 md:w-96  bg-base-300 text-neutral-content my-8">
+            <div className="card-body items-center text-center">
+              <h2 className="text-accent text-xl">Change Quantity</h2>
               <form ref={formRef}>
                 <input
                   value={count}
                   type="number"
                   placeholder="Update Quantity"
-                  class="input input-bordered text-black w-full max-w-xs"
+                  className="input input-bordered text-black w-full max-w-xs"
                 />
-                <div class="card-actions justify-end mt-3">
+                <div className="card-actions justify-end mt-3">
                   <button
                     type="submit"
                     onClick={handleIncrease}
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                   >
                     Increase
                   </button>
                   <button
                     type="submit"
                     onClick={handleDecrease}
-                    class="btn btn-accent"
+                    className="btn btn-accent"
                   >
                     Decrease
                   </button>
@@ -187,96 +187,99 @@ const Purchase = () => {
       <h2 className="text-3xl text-center font-bold text-primary mt-8">
         Give Information To Purchase: {tool.name}{" "}
       </h2>
-      <div class="lg:w-96 md:w-96 mx-auto my-10">
-        <div class="card shadow-2xl card-body bg-accent">
+      <div className="lg:w-96 md:w-96 mx-auto my-10">
+        <div className="card shadow-2xl card-body bg-accent">
           <form onSubmit={handlePurchase}>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text text-white">Tool</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white">Tool</span>
               </label>
               <input
                 ref={toolRef}
                 value={tool.name}
                 type="text"
-                class="input input-bordered"
-                disabled
+                className="input input-bordered"
+                readOnly
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text text-white">Your Name</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white">Your Name</span>
               </label>
               <input
                 ref={nameRef}
                 value={user.displayName}
                 type="text"
-                class="input input-bordered"
-                required
+                className="input input-bordered"
+                readOnly
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text text-white">Email</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white">Email</span>
               </label>
               <input
                 ref={emailRef}
                 value={user.email}
                 type="email"
                 placeholder="email"
-                class="input input-bordered"
-                disabled
+                className="input input-bordered"
+                readOnly
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text text-white">Address</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white">Address</span>
               </label>
               <input
                 ref={addressRef}
                 type="text"
                 placeholder="address"
-                class="input input-bordered"
+                className="input input-bordered"
                 required
               />
             </div>
 
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text text-white">Phone number</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white">Phone number</span>
               </label>
               <input
                 ref={phoneRef}
                 type="number"
                 placeholder="Phone"
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text text-white"> Your Order Quantity</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white">
+                  {" "}
+                  Your Order Quantity
+                </span>
               </label>
               <input
                 ref={orderQuantityRef}
                 value={orderCount}
                 type="text"
-                class="input input-bordered"
-                disabled
+                className="input input-bordered"
+                readOnly
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text text-white"> Total Price</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white"> Total Price</span>
               </label>
               <input
                 ref={totalRef}
                 value={totalPrice}
                 type="text"
-                class="input input-bordered"
-                disabled
+                className="input input-bordered"
+                readOnly
               />
             </div>
-            <div class="form-control mt-6">
-              <button class="btn btn-primary">Purchase</button>
+            <div className="form-control mt-6">
+              <button className="btn btn-primary">Purchase</button>
             </div>
           </form>
         </div>

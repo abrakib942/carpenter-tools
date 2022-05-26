@@ -1,29 +1,30 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const DeleteToolModal = ({ deleteTool, setDeleteTool, refetch }) => {
-  const { _id, name } = deleteTool;
+const DeleteReviewModal = ({ deleteReview, setDeleteReview, refetch }) => {
+  const { _id, name } = deleteReview;
 
   const handleDelete = () => {
-    fetch(`https://rocky-lowlands-40582.herokuapp.com/tool/${_id}`, {
+    fetch(`https://rocky-lowlands-40582.herokuapp.com/review/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          toast(` ${name} is deleted `);
-          setDeleteTool(null);
+          toast(`${name}'s review is deleted`);
+          setDeleteReview(null);
           refetch();
         }
       });
   };
+
   return (
     <div>
       <input type="checkbox" id="delete-modal" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg text-orange-500">
-            Are You sure you want to delete {name}?
+            Are You sure you want to delete {name}'s review?
           </h3>
 
           <div className="modal-action">
@@ -43,4 +44,4 @@ const DeleteToolModal = ({ deleteTool, setDeleteTool, refetch }) => {
   );
 };
 
-export default DeleteToolModal;
+export default DeleteReviewModal;

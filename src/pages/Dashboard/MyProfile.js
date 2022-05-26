@@ -29,10 +29,10 @@ const MyProfile = () => {
         My Profile
       </h2>
 
-      <div class="card w-96 mx-auto bg-base-100 shadow-xl">
-        <div class="card-body">
+      <div className="card w-96 mx-auto bg-base-100 shadow-xl">
+        <div className="card-body">
           <p>
-            Name: <span class="font-bold">{user.displayName}</span>
+            Name: <span className="font-bold">{user.displayName}</span>
           </p>
           <p>
             Email: <span className="font-bold"> {user.email}</span>
@@ -40,61 +40,61 @@ const MyProfile = () => {
         </div>
       </div>
 
-      <div class="hero  my-6">
-        <div class="card  w-full max-w-sm shadow-2xl bg-primary">
-          <div class="card-body">
+      <div className="hero  my-6">
+        <div className="card  w-full max-w-sm shadow-2xl bg-primary">
+          <div className="card-body">
             <form onSubmit={handleAdd}>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Education</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Education</span>
                 </label>
                 <textarea
                   ref={eduRef}
                   type="text"
                   placeholder="education"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   required
                 />
               </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Location</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Location</span>
                 </label>
                 <input
                   ref={locRef}
                   type="text"
                   placeholder="city/district"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   required
                 />
               </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Phone</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Phone</span>
                 </label>
                 <input
                   ref={phoneRef}
                   type="number"
                   placeholder="phone no"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   required
                 />
               </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">LinkedIn Profile</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">LinkedIn Profile</span>
                 </label>
                 <input
                   ref={linkRef}
                   type="text"
                   placeholder="link"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   required
                 />
               </div>
 
-              <div class="form-control mt-6">
-                <button type="submit" class="btn btn-accent">
+              <div className="form-control mt-6">
+                <button type="submit" className="btn btn-accent">
                   Add
                 </button>
               </div>

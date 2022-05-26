@@ -19,7 +19,7 @@ const AddReview = () => {
         rating,
       };
 
-      fetch("http://localhost:5000/review", {
+      fetch("https://rocky-lowlands-40582.herokuapp.com/review", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -45,49 +45,49 @@ const AddReview = () => {
         Add Review
       </h2>
 
-      <div class="hero  ">
-        <div class="card  w-full max-w-sm shadow-2xl bg-primary">
-          <div class="card-body">
+      <div className="hero  ">
+        <div className="card  w-full max-w-sm shadow-2xl bg-primary">
+          <div className="card-body">
             <form onSubmit={handleAdd}>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Your Name</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Your Name</span>
                 </label>
                 <input
                   ref={nameRef}
                   type="text"
                   placeholder="name"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   required
                 />
               </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Description</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Description</span>
                 </label>
                 <textarea
                   ref={desRef}
                   type="text"
                   placeholder="description"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   required
                 />
               </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Rating</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Rating</span>
                 </label>
                 <input
                   ref={ratingRef}
                   type="number"
                   placeholder="1-5"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   required
                 />
               </div>
 
-              <div class="form-control mt-6">
-                <button type="submit" class="btn btn-accent">
+              <div className="form-control mt-6">
+                <button type="submit" className="btn btn-accent">
                   Add
                 </button>
               </div>

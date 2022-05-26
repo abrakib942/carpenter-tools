@@ -13,7 +13,8 @@ const CheckOutForm = ({ order }) => {
   const { _id, tool, totalPrice, email } = order;
 
   useEffect(() => {
-    const url = "http://localhost:5000/create-payment-intent";
+    const url =
+      "https://rocky-lowlands-40582.herokuapp.com/create-payment-intent";
 
     fetch(url, {
       method: "POST",
@@ -76,7 +77,7 @@ const CheckOutForm = ({ order }) => {
         transactionId: paymentIntent.id,
       };
 
-      const url = `http://localhost:5000/order/${_id}`;
+      const url = `https://rocky-lowlands-40582.herokuapp.com/order/${_id}`;
 
       fetch(url, {
         method: "PATCH",

@@ -11,7 +11,9 @@ const ManageProduct = () => {
     isLoading,
     refetch,
   } = useQuery("tools", () =>
-    fetch("http://localhost:5000/tool").then((res) => res.json())
+    fetch("https://rocky-lowlands-40582.herokuapp.com/tool").then((res) =>
+      res.json()
+    )
   );
 
   if (isLoading) {
@@ -24,8 +26,8 @@ const ManageProduct = () => {
         Manage Products
       </h2>
 
-      <div class="overflow-x-auto">
-        <table class="table table-zebra  w-full">
+      <div className="overflow-x-auto">
+        <table className="table table-zebra  w-full">
           <thead>
             <tr>
               <th></th>

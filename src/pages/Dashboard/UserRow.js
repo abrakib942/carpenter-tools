@@ -5,7 +5,7 @@ const UserRow = ({ user, index, refetch }) => {
   const { email, role } = user;
 
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://rocky-lowlands-40582.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -23,7 +23,7 @@ const UserRow = ({ user, index, refetch }) => {
       <td>{email}</td>
       <td>
         {role !== "admin" ? (
-          <button onClick={makeAdmin} class="btn btn-accent btn-xs">
+          <button onClick={makeAdmin} className="btn btn-accent btn-xs">
             Make Admin
           </button>
         ) : (

@@ -5,7 +5,7 @@ const CancelModal = ({ cancelOrder, refetch, setCancelOrder }) => {
   const { tool, _id } = cancelOrder;
 
   const handleDelete = () => {
-    fetch(`http://localhost:5000/order/${_id}`, {
+    fetch(`https://rocky-lowlands-40582.herokuapp.com/order/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -20,21 +20,21 @@ const CancelModal = ({ cancelOrder, refetch, setCancelOrder }) => {
 
   return (
     <div>
-      <input type="checkbox" id="delete-modal" class="modal-toggle" />
-      <div class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-          <h3 class="font-bold text-lg text-orange-500">
+      <input type="checkbox" id="delete-modal" className="modal-toggle" />
+      <div className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg text-orange-500">
             Are You sure you want to delete {tool}?
           </h3>
 
-          <div class="modal-action">
+          <div className="modal-action">
             <button
               onClick={() => handleDelete()}
               className="btn btn-xs btn-primary"
             >
               Delete
             </button>
-            <label for="delete-modal" class="btn btn-accent btn-xs">
+            <label for="delete-modal" className="btn btn-accent btn-xs">
               Not Now
             </label>
           </div>

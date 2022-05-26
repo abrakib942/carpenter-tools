@@ -1,6 +1,6 @@
 import React from "react";
 
-const AllOrderRow = ({ order, index, refetch }) => {
+const AllOrderRow = ({ order, index }) => {
   const { tool, name, email, address, orderQuantity, totalPrice } = order;
   return (
     <tr className="hover">

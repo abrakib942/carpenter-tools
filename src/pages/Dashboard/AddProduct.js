@@ -28,7 +28,7 @@ const AddProduct = () => {
       img,
     };
 
-    fetch("http://localhost:5000/tool", {
+    fetch("https://rocky-lowlands-40582.herokuapp.com/tool", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -48,83 +48,83 @@ const AddProduct = () => {
     <div className="bg-base-300 py-8">
       <h2 className="text-2xl font-bold text-center my-5">Add Product</h2>
 
-      <div class="hero">
-        <div class="card  w-full max-w-sm shadow-2xl bg-primary">
-          <div class="card-body">
+      <div className="hero">
+        <div className="card  w-full max-w-sm shadow-2xl bg-primary">
+          <div className="card-body">
             <form onSubmit={handleAdd}>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Product Name</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Product Name</span>
                 </label>
                 <input
                   ref={nameRef}
                   type="text"
                   placeholder="name"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   required
                 />
               </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Description</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Description</span>
                 </label>
                 <textarea
                   ref={desRef}
                   type="text"
                   placeholder="description"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   required
                 />
               </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Minimum Order Quantity</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Minimum Order Quantity</span>
                 </label>
                 <input
                   value={10}
                   ref={minRef}
                   type="number"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   disabled
                 />
               </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Available Quantity</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Available Quantity</span>
                 </label>
                 <input
                   ref={availableRef}
                   type="number"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   required
                 />
               </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Price Per Unit</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Price Per Unit</span>
                 </label>
                 <input
                   ref={priceRef}
                   type="number"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   required
                 />
               </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text font-bold">Insert Url</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text font-bold">Insert Url</span>
                 </label>
                 <input
                   ref={imgRef}
                   type="text"
                   placeholder="Photo Url"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   required
                 />
               </div>
 
-              <div class="form-control mt-6">
-                <button type="submit" class="btn btn-accent">
+              <div className="form-control mt-6">
+                <button type="submit" className="btn btn-accent">
                   Add
                 </button>
               </div>

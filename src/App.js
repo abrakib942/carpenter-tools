@@ -23,6 +23,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Portfolio from "./pages/Portfolio";
 import RequireAdmin from "./pages/login/RequireAdmin";
 import Payment from "./pages/Dashboard/Payment";
+import ManageReviews from "./pages/Dashboard/ManageReviews";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
             }
           />
           <Route path="manage-product" element={<ManageProduct />} />
+          <Route path="manage-review" element={<ManageReviews />} />
           <Route path="profile" element={<MyProfile />} />
         </Route>
       </Routes>

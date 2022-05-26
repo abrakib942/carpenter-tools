@@ -14,7 +14,9 @@ const Payment = () => {
   const { id } = useParams();
 
   const { data: order, isLoading } = useQuery("order", () =>
-    fetch(`http://localhost:5000/order/${id}`).then((res) => res.json())
+    fetch(`https://rocky-lowlands-40582.herokuapp.com/order/${id}`).then(
+      (res) => res.json()
+    )
   );
 
   if (isLoading) {
@@ -23,16 +25,16 @@ const Payment = () => {
 
   return (
     <div>
-      <div class="card w-50 max-w-md bg-base-200 shadow-xl my-12">
-        <div class="card-body">
+      <div className="card w-50 max-w-md bg-base-200 shadow-xl my-12">
+        <div className="card-body">
           <p className="text-orange-500 font-bold">Hello, {order.name}</p>
-          <h2 class="card-title text-accent">Pay for {order.tool} </h2>
+          <h2 className="card-title text-accent">Pay for {order.tool} </h2>
 
           <p>Please pay: ${order.totalPrice}</p>
         </div>
       </div>
-      <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
-        <div class="card-body">
+      <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
+        <div className="card-body">
           <Elements stripe={stripePromise}>
             <CheckOutForm order={order} />
           </Elements>

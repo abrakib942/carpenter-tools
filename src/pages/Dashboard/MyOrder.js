@@ -16,9 +16,9 @@ const MyOrder = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`http://localhost:5000/order?email=${email}`).then((res) =>
-      res.json()
-    )
+    fetch(
+      `https://rocky-lowlands-40582.herokuapp.com/order?email=${email}`
+    ).then((res) => res.json())
   );
 
   if (isLoading) {
@@ -31,8 +31,8 @@ const MyOrder = () => {
         My Orders
       </h2>
 
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
               <th></th>
