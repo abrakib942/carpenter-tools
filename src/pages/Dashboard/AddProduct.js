@@ -85,7 +85,7 @@ const AddProduct = () => {
                   ref={minRef}
                   type="number"
                   className="input input-bordered"
-                  disabled
+                  readOnly
                 />
               </div>
               <div className="form-control">

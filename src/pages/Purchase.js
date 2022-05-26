@@ -275,6 +275,7 @@ const Purchase = () => {
                 value={totalPrice}
                 type="text"
                 className="input input-bordered"
+                placeholder="please click increase button "
                 readOnly
               />
             </div>

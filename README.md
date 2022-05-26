@@ -13,4 +13,4 @@ Server Side Repository: [https://github.com/programming-hero-web-course1/manufac
   Dashboard- user see his profile, his orders and add Review.
 - an admin see his profile, manage orders, add product, make admin to others, manage products, manage Reviews.
 
-\*\*\* user and admin dashboard are separate. use see only his dashboard and admin seen his
+\*\*\* user and admin dashboard are separate. user see only his dashboard and admin seen his
