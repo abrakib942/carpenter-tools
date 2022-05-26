@@ -50,7 +50,7 @@ const Login = () => {
 
   return (
     <div className="bg-accent">
-      <div className="w-96 mx-auto py-16">
+      <div className="lg:w-96 md:w-96 mx-auto py-16">
         <div className=" shadow-2xl card-body bg-primary rounded-lg">
           <h2 className="text-2xl font-bold text-center">Login</h2>
           <form onSubmit={handleSubmit(onSubmit)}>

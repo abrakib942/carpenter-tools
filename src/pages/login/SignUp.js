@@ -54,7 +54,7 @@ const SignUp = () => {
 
   return (
     <div className="bg-primary">
-      <div className=" w-96 mx-auto py-16">
+      <div className=" lg:w-96 md:w-96  mx-auto py-16">
         <div className=" shadow-2xl card-body bg-accent rounded-lg">
           <h2 className="text-2xl font-bold text-center text-white">Sign Up</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
