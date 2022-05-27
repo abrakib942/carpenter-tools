@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <p>Copyright © 2022 - All right reserved by Carpenco</p>
+          <p>Copyright © 2022 - All right reserved by A.B. Rakib</p>
         </div>
       </footer>
     </div>
