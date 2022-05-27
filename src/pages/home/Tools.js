@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import Loading from "../../components/Loading";
 import Tool from "./Tool";
 
 const Tools = () => {
-  const [tools, setTools] = useState([]);
+  const { data: tools, isLoading } = useQuery("tools", () =>
+    fetch("https://rocky-lowlands-40582.herokuapp.com/tool").then((res) =>
+      res.json()
+    )
+  );
 
-  useEffect(() => {
-    fetch("https://rocky-lowlands-40582.herokuapp.com/tool")
-      .then((res) => res.json())
-      .then((data) => setTools(data));
-  }, []);
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="px-16">

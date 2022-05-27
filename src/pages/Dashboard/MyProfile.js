@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 
@@ -32,10 +32,10 @@ const MyProfile = () => {
       <div className="card lg:w-96 md:w-96 mx-auto bg-base-100 shadow-xl">
         <div className="card-body">
           <p>
-            Name: <span className="font-bold">{user.displayName}</span>
+            Name: <span className="font-bold">{user?.displayName}</span>
           </p>
           <p>
-            Email: <span className="font-bold"> {user.email}</span>
+            Email: <span className="font-bold"> {user?.email}</span>
           </p>
         </div>
       </div>

@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import Blog from "./pages/Blog";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import NotFound from "./pages/NotFound";
@@ -20,7 +19,6 @@ import Purchase from "./pages/Purchase";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Portfolio from "./pages/Portfolio";
 import RequireAdmin from "./pages/login/RequireAdmin";
 import Payment from "./pages/Dashboard/Payment";
 import ManageReviews from "./pages/Dashboard/ManageReviews";
@@ -33,8 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
-        <Route path="/blog" element={<Blog />}></Route>
-        <Route path="/portfolio" element={<Portfolio />} />
+
         <Route path="*" element={<NotFound />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />} />

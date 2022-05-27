@@ -2,7 +2,7 @@
 
 Live Website: [https://carpenter-tools-89703.web.app/](https://carpenter-tools-89703.web.app/).
 
-Server Side Repository: [https://github.com/programming-hero-web-course1/manufacturer-website-server-side-abrakib942](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-abrakib942)
+Server Side Repository: [https://github.com/abrakib942/carpenter-tools-server](https://github.com/abrakib942/carpenter-tools-server)
 
 # About Carpenco
 

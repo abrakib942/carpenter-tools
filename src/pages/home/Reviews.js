@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import Loading from "../../components/Loading";
 import Review from "./Review";
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
+  const { data: reviews, isLoading } = useQuery("reviews", () =>
+    fetch("https://rocky-lowlands-40582.herokuapp.com/review").then((res) =>
+      res.json()
+    )
+  );
 
-  useEffect(() => {
-    fetch("https://rocky-lowlands-40582.herokuapp.com/review")
-      .then((res) => res.json())
-      .then((data) => setReviews(data));
-  }, []);
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="mb-16">
@@ -16,7 +19,7 @@ const Reviews = () => {
         Clients Reviews
       </h2>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 justify-items-center gap-8 px-16">
-        {reviews.map((review) => (
+        {reviews?.map((review) => (
           <Review key={review._id} review={review}></Review>
         ))}
       </div>
