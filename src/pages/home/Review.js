@@ -5,7 +5,7 @@ const Review = ({ review }) => {
   return (
     <div>
       <div
-        data-aos="fade-up-left"
+        data-aos="fade-up"
         data-aos-delay="400"
         data-aos-duration="900"
         className="card bg-base-100 shadow-xl"

@@ -16,7 +16,7 @@ const Reviews = () => {
   return (
     <div className="mb-16">
       <h2 className="text-3xl text-center text-accent mt-12 mb-8 font-bold">
-        Clients Reviews
+        Client Reviews
       </h2>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 justify-items-center gap-8 px-16">
         {reviews?.map((review) => (
