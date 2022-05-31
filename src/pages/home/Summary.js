@@ -12,7 +12,12 @@ const Summary = () => {
       <h2 className="text-center text-3xl text-accent font-bold">
         MILLIONS BUSINESS TRUST US
       </h2>
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 justify-items-center gap-8 my-10">
+      <div
+        data-aos="fade-right"
+        data-aos-delay="400"
+        data-aos-duration="900"
+        className="grid lg:grid-cols-4 md:grid-cols-2 justify-items-center gap-8 my-10"
+      >
         <div className="card card-compact w-52 bg-base-100 ">
           <figure>
             <FlagIcon className="h-24 w-24 text-primary" />

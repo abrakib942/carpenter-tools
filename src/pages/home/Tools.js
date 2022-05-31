@@ -19,7 +19,7 @@ const Tools = () => {
         Woodworking Tools
       </h3>
 
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 justify-items-center  gap-8">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 justify-items-center gap-8">
         {tools.map((tool) => (
           <Tool key={tool._id} tool={tool}></Tool>
         ))}

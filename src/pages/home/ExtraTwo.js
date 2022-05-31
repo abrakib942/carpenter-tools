@@ -12,7 +12,12 @@ const ExtraTwo = () => {
       </p>
       <h2 className="text-3xl font-bold text-center">Carpenters Blog</h2>
 
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 px-16 mt-16">
+      <div
+        data-aos="fade-down"
+        data-aos-delay="400"
+        data-aos-duration="900"
+        className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 px-16 mt-16"
+      >
         <div className="card card-compact bg-base-100 shadow-xl">
           <figure>
             <img src={blog1} alt="Shoes" />

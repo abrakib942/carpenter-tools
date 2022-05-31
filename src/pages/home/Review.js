@@ -4,7 +4,12 @@ const Review = ({ review }) => {
   const { name, description, rating, date } = review;
   return (
     <div>
-      <div className="card bg-base-100 shadow-xl">
+      <div
+        data-aos="fade-up-left"
+        data-aos-delay="400"
+        data-aos-duration="900"
+        className="card bg-base-100 shadow-xl"
+      >
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
           <small className="text-accent font-bold text-xs "> {date}</small>

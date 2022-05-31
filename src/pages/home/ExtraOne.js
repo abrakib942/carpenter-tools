@@ -9,7 +9,12 @@ const ExtraOne = () => {
       }}
       className="lg:p-36 md:p-24 p-12 my-20"
     >
-      <div className="text-center text-white">
+      <div
+        data-aos="zoom-in-up"
+        data-aos-delay="400"
+        data-aos-duration="900"
+        className="text-center text-white"
+      >
         <h2 className="lg:text-xl text-sm font-mono  ">
           POWER TOOLS YOU SHOULD OWN
         </h2>
