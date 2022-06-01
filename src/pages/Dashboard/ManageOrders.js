@@ -4,11 +4,7 @@ import Loading from "../../components/Loading";
 import AllOrderRow from "./AllOrderRow";
 
 const ManageOrders = () => {
-  const {
-    data: orders,
-    isLoading,
-    refetch,
-  } = useQuery("orders", () =>
+  const { data: orders, isLoading } = useQuery("orders", () =>
     fetch("https://rocky-lowlands-40582.herokuapp.com/all-order").then((res) =>
       res.json()
     )

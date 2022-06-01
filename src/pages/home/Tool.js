@@ -1,5 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { toast } from "react-toastify";
 
 const Tool = ({ tool }) => {
   const {
@@ -11,10 +14,22 @@ const Tool = ({ tool }) => {
     availableQuantity,
     price,
   } = tool;
+
+  const [user] = useAuthState(auth);
+
   const navigate = useNavigate();
 
   const navigateToPurchase = (id) => {
     navigate(`/tool/${id}`);
+
+    if (!user) {
+      toast(
+        "Offs! You are not logged in. If you want to buy, you have to log in.",
+        {
+          position: toast.POSITION.TOP_CENTER,
+        }
+      );
+    }
   };
   return (
     <div className="transform hover:scale-105 duration-500">

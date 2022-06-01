@@ -118,11 +118,7 @@ const Login = () => {
                   {errors.password.message}{" "}
                 </span>
               )}
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
+              <label className="label"></label>
             </div>
             {signInError}
             <div className="form-control mt-6">
