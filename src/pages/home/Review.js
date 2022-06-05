@@ -1,5 +1,6 @@
 import { StarIcon } from "@heroicons/react/solid";
-import React, { useState } from "react";
+import React from "react";
+import Rating from "react-rating";
 import people from "../../assets/people.png";
 
 const Review = ({ review }) => {
@@ -26,10 +27,13 @@ const Review = ({ review }) => {
             </div>
           </div>
           <p>{description}</p>
-          <h2 className="text-orange-500 flex">
-            {[...Array(rating)].map(() => (
-              <StarIcon className="h-5 w-5" />
-            ))}
+          <h2 className=" flex">
+            <Rating
+              initialRating={rating}
+              emptySymbol={<StarIcon className="h-5 w-5 text-gray-400" />}
+              fullSymbol={<StarIcon className="h-5 w-5 text-orange-500" />}
+              readonly
+            />
           </h2>
         </div>
       </div>
