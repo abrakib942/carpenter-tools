@@ -50,7 +50,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 lg:px-12 md:px-12 flex justify-between ">
+    <div className="navbar sticky top-0 z-20 text-white bg-[#302718] lg:px-12 md:px-12 flex justify-between ">
       {/* sidebar */}
 
       {pathname.includes("/dashboard") && (
@@ -74,7 +74,7 @@ const Navbar = () => {
 
       <Link
         to="/"
-        className="btn btn-ghost normal-case text-xl text-primary font-bold"
+        className="btn btn-ghost normal-case text-xl text-primary  font-bold"
       >
         CARPENCO
       </Link>
@@ -94,7 +94,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex="0"
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black"
           >
             {menuItems}
           </ul>
