@@ -9,9 +9,7 @@ const MakeAddmin = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("https://rocky-lowlands-40582.herokuapp.com/user").then((res) =>
-      res.json()
-    )
+    fetch("https://carpenter-tools.onrender.com/user").then((res) => res.json())
   );
 
   if (isLoading) {

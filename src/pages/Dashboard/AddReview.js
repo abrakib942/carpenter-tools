@@ -19,7 +19,7 @@ const AddReview = () => {
         rating,
       };
 
-      fetch("https://rocky-lowlands-40582.herokuapp.com/review", {
+      fetch("https://carpenter-tools.onrender.com/review", {
         method: "POST",
         headers: {
           "content-type": "application/json",

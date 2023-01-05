@@ -6,7 +6,7 @@ const useAdmin = (user) => {
   useEffect(() => {
     const email = user?.email;
     if (email) {
-      fetch(`https://rocky-lowlands-40582.herokuapp.com/admin/${email}`)
+      fetch(`https://carpenter-tools.onrender.com/admin/${email}`)
         .then((res) => res.json())
         .then((data) => {
           setAdmin(data.admin);

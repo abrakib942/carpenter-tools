@@ -13,8 +13,7 @@ const CheckOutForm = ({ order }) => {
   const { _id, tool, totalPrice, email } = order;
 
   useEffect(() => {
-    const url =
-      "https://rocky-lowlands-40582.herokuapp.com/create-payment-intent";
+    const url = "https://carpenter-tools.onrender.com/create-payment-intent";
 
     fetch(url, {
       method: "POST",
@@ -77,7 +76,7 @@ const CheckOutForm = ({ order }) => {
         transactionId: paymentIntent.id,
       };
 
-      const url = `https://rocky-lowlands-40582.herokuapp.com/order/${_id}`;
+      const url = `https://carpenter-tools.onrender.com/order/${_id}`;
 
       fetch(url, {
         method: "PATCH",

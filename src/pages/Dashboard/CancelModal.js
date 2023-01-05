@@ -5,7 +5,7 @@ const CancelModal = ({ cancelOrder, refetch, setCancelOrder }) => {
   const { tool, _id } = cancelOrder;
 
   const handleDelete = () => {
-    fetch(`https://rocky-lowlands-40582.herokuapp.com/order/${_id}`, {
+    fetch(`https://carpenter-tools.onrender.com/order/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

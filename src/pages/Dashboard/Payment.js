@@ -14,8 +14,8 @@ const Payment = () => {
   const { id } = useParams();
 
   const { data: order, isLoading } = useQuery("order", () =>
-    fetch(`https://rocky-lowlands-40582.herokuapp.com/order/${id}`).then(
-      (res) => res.json()
+    fetch(`https://carpenter-tools.onrender.com/order/${id}`).then((res) =>
+      res.json()
     )
   );
 

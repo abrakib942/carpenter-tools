@@ -5,7 +5,7 @@ const DeleteReviewModal = ({ deleteReview, setDeleteReview, refetch }) => {
   const { _id, name } = deleteReview;
 
   const handleDelete = () => {
-    fetch(`https://rocky-lowlands-40582.herokuapp.com/review/${_id}`, {
+    fetch(`https://carpenter-tools.onrender.com/review/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

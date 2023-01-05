@@ -26,7 +26,7 @@ const Purchase = () => {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    fetch(`https://rocky-lowlands-40582.herokuapp.com/tool/${id}`)
+    fetch(`https://carpenter-tools.onrender.com/tool/${id}`)
       .then((res) => res.json())
       .then((data) => setTool(data));
   }, [id]);
@@ -51,7 +51,7 @@ const Purchase = () => {
       tool,
     };
 
-    fetch("https://rocky-lowlands-40582.herokuapp.com/order", {
+    fetch("https://carpenter-tools.onrender.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -89,7 +89,7 @@ const Purchase = () => {
     // const tPrice = tool.orderQuantity * tool.price;
     // setTotalPrice(tPrice);
 
-    // fetch(`https://rocky-lowlands-40582.herokuapp.com/tool/${id}`, {
+    // fetch(`https://carpenter-tools.onrender.com/tool/${id}`, {
     //   method: "PUT",
     //   headers: {
     //     "content-type": "application/json",

@@ -5,7 +5,7 @@ const DeleteToolModal = ({ deleteTool, setDeleteTool, refetch }) => {
   const { _id, name } = deleteTool;
 
   const handleDelete = () => {
-    fetch(`https://rocky-lowlands-40582.herokuapp.com/tool/${_id}`, {
+    fetch(`https://carpenter-tools.onrender.com/tool/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

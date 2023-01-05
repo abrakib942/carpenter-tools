@@ -16,9 +16,9 @@ const MyOrder = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch(
-      `https://rocky-lowlands-40582.herokuapp.com/order?email=${email}`
-    ).then((res) => res.json())
+    fetch(`https://carpenter-tools.onrender.com/order?email=${email}`).then(
+      (res) => res.json()
+    )
   );
 
   if (isLoading) {

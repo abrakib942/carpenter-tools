@@ -8,7 +8,7 @@ const useToken = (user) => {
     const currentUser = { email: email };
 
     if (email) {
-      fetch(`https://rocky-lowlands-40582.herokuapp.com/user/${email}`, {
+      fetch(`https://carpenter-tools.onrender.com/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

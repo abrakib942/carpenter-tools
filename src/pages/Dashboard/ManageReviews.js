@@ -13,7 +13,7 @@ const ManageReviews = () => {
     isLoading,
     refetch,
   } = useQuery("reviews", () =>
-    fetch("https://rocky-lowlands-40582.herokuapp.com/review").then((res) =>
+    fetch("https://carpenter-tools.onrender.com/review").then((res) =>
       res.json()
     )
   );

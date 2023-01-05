@@ -11,9 +11,7 @@ const ManageProduct = () => {
     isLoading,
     refetch,
   } = useQuery("tools", () =>
-    fetch("https://rocky-lowlands-40582.herokuapp.com/tool").then((res) =>
-      res.json()
-    )
+    fetch("https://carpenter-tools.onrender.com/tool").then((res) => res.json())
   );
 
   if (isLoading) {
